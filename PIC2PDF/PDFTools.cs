@@ -143,7 +143,12 @@ namespace PIC2PDF
         {
             XImage image = XImage.FromFile(picPath);
 
-            if ((image.PixelWidth * 72 / image.HorizontalResolution) > 1684 || (image.PixelHeight * 72 / image.VerticalResolution) > 2380)
+            if (image.PixelWidth > image.PixelHeight)
+            {
+                page.Orientation = PdfSharp.PageOrientation.Landscape;
+            }
+
+            if ((image.PixelWidth * 72 / image.HorizontalResolution) > page.Width || (image.PixelHeight * 72 / image.VerticalResolution) > page.Height)
             {
                 page.Size = PdfSharp.PageSize.A0;
             }
