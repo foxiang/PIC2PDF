@@ -153,7 +153,14 @@ namespace PIC2PDF
                 document.Save(savefileName);
 
                 MessageBox.Show(this, "PDF文件合并成功。存储在：" + savefileName);
-                Process.Start(filename);
+                try
+                {
+                    Process.Start(filename);
+                }
+                catch(Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
             }
         }
     }

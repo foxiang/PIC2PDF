@@ -163,17 +163,17 @@ namespace PIC2PDF
 
             if (image.PixelWidth > image.PixelHeight)
             {
-                width = gfx.PageSize.Width - 100;
+                width = gfx.PageSize.Width - 10;
                 height = width * yscale;
-                x = 50;
+                x = 5;
                 y = (gfx.PageSize.Height - height) / 2 - 1;
             }
             else
             {
-                height = gfx.PageSize.Height - 100;
+                height = gfx.PageSize.Height - 10;
                 width = height * xscale;
                 x = (gfx.PageSize.Width - width) / 2 - 1;
-                y = 50;
+                y = 5;
             }
 
             
