@@ -148,10 +148,10 @@ namespace PIC2PDF
                 page.Orientation = PdfSharp.PageOrientation.Landscape;
             }
 
-            if ((image.PixelWidth * 72 / image.HorizontalResolution) > page.Width || (image.PixelHeight * 72 / image.VerticalResolution) > page.Height)
-            {
-                page.Size = PdfSharp.PageSize.A0;
-            }
+            //if ((image.PixelWidth * 72 / image.HorizontalResolution) > page.Width || (image.PixelHeight * 72 / image.VerticalResolution) > page.Height)
+            //{
+            //    page.Size = PdfSharp.PageSize.A0;
+            //}
 
             XGraphics gfx = XGraphics.FromPdfPage(page);
 
