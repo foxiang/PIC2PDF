@@ -144,7 +144,7 @@ namespace PIC2PDF
                     //// Create an empty page
                     PDFTools PDFImage = new PDFTools(document);
                     PdfPage page = document.AddPage();
-                    page.Size = PdfSharp.PageSize.A1;
+                    page.Size = PdfSharp.PageSize.A4;
                     PDFImage.DrawImage(page, path);
 
                     #endregion

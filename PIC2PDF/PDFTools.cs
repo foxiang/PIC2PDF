@@ -148,10 +148,25 @@ namespace PIC2PDF
                 page.Orientation = PdfSharp.PageOrientation.Landscape;
             }
 
-            //if ((image.PixelWidth * 72 / image.HorizontalResolution) > page.Width || (image.PixelHeight * 72 / image.VerticalResolution) > page.Height)
-            //{
-            //    page.Size = PdfSharp.PageSize.A0;
-            //}
+            if (image.PixelWidth  > page.Width.Point || image.PixelHeight > page.Height.Point)
+            {
+                page.Size = PdfSharp.PageSize.A3;
+            }
+
+            if (image.PixelWidth > page.Width.Point || image.PixelHeight > page.Height.Point)
+            {
+                page.Size = PdfSharp.PageSize.A2;
+            }
+
+            if (image.PixelWidth > page.Width.Point || image.PixelHeight > page.Height.Point)
+            {
+                page.Size = PdfSharp.PageSize.A1;
+            }
+
+            if (image.PixelWidth > page.Width.Point || image.PixelHeight > page.Height.Point)
+            {
+                page.Size = PdfSharp.PageSize.A0;
+            }
 
             XGraphics gfx = XGraphics.FromPdfPage(page);
 
@@ -181,8 +196,8 @@ namespace PIC2PDF
                 y = 5;
             }
 
-            
-            gfx.DrawImage(image, x, y, width, height);
+
+            gfx.DrawImage(image, Math.Floor(x), Math.Floor(y), Math.Floor(width), Math.Floor(height));
             //gfx.DrawImage(image, x, y, width * 72 / image.HorizontalResolution, height * 72 / image.VerticalResolution);
 
 
